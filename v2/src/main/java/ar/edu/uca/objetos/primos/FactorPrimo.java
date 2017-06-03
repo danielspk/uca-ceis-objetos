@@ -2,14 +2,14 @@ package ar.edu.uca.objetos.primos;
 
 import java.util.ArrayList;
 
-public class FactorPrimoPrimo {
+public class FactorPrimo {
 	public void obtenerFactor(int numero, String formato) {
-		ArrayList<Integer> numerosPrimos = this.getNumeroPrimos(numero);
+		ArrayList<Integer> numerosPrimos = this.getNumerosPrimos(numero);
 		ArrayList<Integer> factoresPrimos = this.getFactoresPrimos(numero, numerosPrimos);
 		this.imprimirFactoresPrimos(numero, factoresPrimos, formato);
 	}
 	
-	private ArrayList<Integer> getNumeroPrimos(int numero) {
+	private ArrayList<Integer> getNumerosPrimos(int numero) {
 		ArrayList<Integer> numerosPrimos = new ArrayList<Integer>();
 		
 		for (int i = 0; i <= numero; i++) {

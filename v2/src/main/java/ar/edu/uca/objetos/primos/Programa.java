@@ -4,9 +4,13 @@ public class Programa{
 	
 	public static void main( String[] args ){
 		int numero = Integer.parseInt(args[0]);
-		String formato = args[1].substring(9);
+		String formato = "pretty";
 		
-		FactorPrimoPrimo factorPrimo = new FactorPrimoPrimo();
+		if (args.length > 1) {
+			formato = args[1].substring(9).toLowerCase();
+		}
+		
+		FactorPrimo factorPrimo = new FactorPrimo();
 		factorPrimo.obtenerFactor(numero, formato);
 	}
 }
