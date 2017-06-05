@@ -6,10 +6,31 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public class FactorPrimo {
-	public ArrayList<Integer> getFactores(int numero) {
-		ArrayList<Integer> numerosPrimos = this.getNumerosPrimos(numero);
+	public ArrayList<Integer> getFactoresPrimos(int numero) {
+		int descomposicion = numero;
+		int numeroPrimo = 2;
+		ArrayList<Integer> factoresPrimos = new ArrayList<Integer>();
 		
-		return this.getFactoresPrimos(numero, numerosPrimos);
+		while (descomposicion > 1) {
+			if (descomposicion % numeroPrimo == 0) {
+				descomposicion /= numeroPrimo;
+				factoresPrimos.add(numeroPrimo);
+				
+				continue;
+			}
+			
+			numeroPrimo++;
+			
+			for (int aux = 2; aux < numeroPrimo; aux++) {
+				if (numeroPrimo % aux == 0) {
+					numeroPrimo++;
+					
+					continue;
+				}
+			}
+		}
+		
+		return factoresPrimos;
 	}
 	
 	public String imprimirFactoresPrimos(
@@ -39,49 +60,5 @@ public class FactorPrimo {
 		} catch (IOException e) {
 			System.out.println("Error en la generación del archivo de salida.");
 		}
-	}
-	
-	private ArrayList<Integer> getNumerosPrimos(int numero) {
-		ArrayList<Integer> numerosPrimos = new ArrayList<Integer>();
-		
-		for (int i = 0; i <= numero; i++) {
-			int casos = 0;
-			
-			for (int j = 1; j <= i; j++) {
-				if (i % j == 0) {
-					casos++;
-				}
-			}
-			
-			if (casos == 2) {
-				numerosPrimos.add(i);
-			}
-		}
-		
-		return numerosPrimos;
-	}
-	
-	private ArrayList<Integer> getFactoresPrimos(int numero, ArrayList<Integer> numerosPrimos) {
-		int descomposicion = numero;
-		ArrayList<Integer> factoresPrimos = new ArrayList<Integer>();
-		
-		for (Integer num : numerosPrimos) {
-			boolean esFactor = true;
-			
-			while (esFactor) {
-				if (descomposicion % num == 0) {
-					descomposicion /= num;
-					factoresPrimos.add(num);
-				} else {
-					esFactor = false;
-				}
-			}
-			
-			if (descomposicion <= 1) {
-				break;
-			}
-		}
-		
-		return factoresPrimos;
 	}
 }

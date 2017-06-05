@@ -30,7 +30,7 @@ public class Programa{
 		String impresion = "";
 		
 		FactorPrimo factorPrimo = new FactorPrimo();
-		factoresPrimos = factorPrimo.getFactores(numero);
+		factoresPrimos = factorPrimo.getFactoresPrimos(numero);
 		impresion = factorPrimo.imprimirFactoresPrimos(numero, factoresPrimos, formato, orden, archivo);
 		
 		if (archivo != null) {
