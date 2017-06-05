@@ -34,8 +34,9 @@ public class FactorPrimo {
 	}
 	
 	public String imprimirFactoresPrimos(
-			int numero, ArrayList<Integer> factoresPrimos, 
-			String formato, String orden, String archivo
+			int numero, 
+			ArrayList<Integer> factoresPrimos, 
+			String formato, String orden
 	) {
 		String resultados = "";
 		
@@ -52,13 +53,5 @@ public class FactorPrimo {
 		}
 		
 		return resultados;
-	}
-	
-	public void guardarImpresion(String impresion, String archivo) {
-		try {
-			Files.write(Paths.get("./" + archivo), impresion.getBytes());
-		} catch (IOException e) {
-			System.out.println("Error en la generación del archivo de salida.");
-		}
 	}
 }

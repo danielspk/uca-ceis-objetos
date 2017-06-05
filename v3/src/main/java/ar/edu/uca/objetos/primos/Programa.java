@@ -26,15 +26,16 @@ public class Programa{
 			}
 		}
 
-		ArrayList<Integer> factoresPrimos = null;
-		String impresion = "";
+		ArrayList<Integer> factoresPrimos;
+		String impresion;
 		
 		FactorPrimo factorPrimo = new FactorPrimo();
 		factoresPrimos = factorPrimo.getFactoresPrimos(numero);
-		impresion = factorPrimo.imprimirFactoresPrimos(numero, factoresPrimos, formato, orden, archivo);
+		impresion = factorPrimo.imprimirFactoresPrimos(numero, factoresPrimos, formato, orden);
 		
 		if (archivo != null) {
-			factorPrimo.guardarImpresion(impresion, archivo);
+			Salida salida = new Salida();
+			salida.guardarTexto(impresion, archivo);
 		}
 	}
 }
