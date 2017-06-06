@@ -1,8 +1,5 @@
 package ar.edu.uca.objetos.primos;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public class FactorPrimo {
