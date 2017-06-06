@@ -13,7 +13,7 @@ public class Programa{
 		for (int i = 1; i < args.length; i++) {
 			String[] parametro = args[i].split("=");
 			
-			switch (parametro[0]) {
+			switch (parametro[0].toLowerCase()) {
 			case "--format":
 				formato = parametro[1].toLowerCase();
 				break;
